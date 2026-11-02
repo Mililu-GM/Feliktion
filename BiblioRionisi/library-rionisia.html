@@ -14,7 +14,7 @@
   html { -webkit-text-size-adjust: 100%; }
 
   :root {
-    /* ── Палитра Seven_Four74 (фон) ── */
+    /* ── палитра фон ── */
     --bg: #0e1117;
     --panel: #161b26;
     --panel-2: #1d2433;
@@ -39,11 +39,9 @@
     --gold: #d4a857;
     --gold-bright: #e8c878;
     --gold-deep: #8a6d34;
-
-    --page-cream: #f0e5cd;
   }
 
-  /* ═══════════ ФОН В СТИЛЕ SEVEN_FOUR74 ═══════════ */
+  /* ═══════════ ФОН ═══════════ */
   body {
     margin: 0;
     padding: 50px 20px 80px;
@@ -58,6 +56,67 @@
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
+  }
+
+  /* ═══════════ КНОПКА ВОЗВРАТА ═══════════ */
+  .back-link {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 50;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 18px 9px 14px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.86em;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    text-decoration: none;
+    background: linear-gradient(180deg, rgba(29, 36, 51, 0.92), rgba(14, 17, 23, 0.92));
+    border: 1px solid rgba(212, 168, 87, 0.35);
+    border-radius: 4px;
+    box-shadow:
+      0 6px 18px rgba(0, 0, 0, 0.6),
+      inset 0 1px 1px rgba(200, 220, 255, 0.06),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.5);
+    transition:
+      color 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.3s ease,
+      background 0.3s ease;
+  }
+
+  .back-link__arrow {
+    font-size: 1.1em;
+    line-height: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .back-link:hover,
+  .back-link:focus-visible {
+    color: var(--gold-bright);
+    border-color: rgba(212, 168, 87, 0.85);
+    background: linear-gradient(180deg, rgba(38, 47, 66, 0.95), rgba(18, 22, 30, 0.95));
+    box-shadow:
+      0 0 22px rgba(212, 168, 87, 0.32),
+      0 6px 18px rgba(0, 0, 0, 0.65),
+      inset 0 1px 1px rgba(200, 220, 255, 0.10),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.5);
+    transform: translateX(-3px);
+    outline: none;
+  }
+
+  .back-link:hover .back-link__arrow,
+  .back-link:focus-visible .back-link__arrow {
+    transform: translateX(-3px);
+  }
+
+  .back-link:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
   }
 
   /* ═══════════ ЗАГОЛОВОК ═══════════ */
@@ -263,7 +322,7 @@
   .shelf--empty .books-stage { min-height: 130px; }
   .shelf--empty .plank { opacity: 0.55; }
 
-  /* ═══════════ ПОЛКА (панельные тона Seven_Four74) ═══════════ */
+  /* ═══════════ ПОЛКА ═══════════ */
   .plank {
     position: relative;
     width: 100%;
@@ -313,7 +372,7 @@
   .plank::before { left: 18px; }
   .plank::after  { right: 18px; }
 
-  /* ═══════════ КНИГА — 3D КОНТЕЙНЕР ═══════════ */
+  /* ═══════════ КНИГА ═══════════ */
   .book {
     /* Коричневая кожа — по умолчанию */
     --leather-1: #4a2e15;
@@ -329,7 +388,6 @@
     position: relative;
     transform-origin: bottom center;
     transform-style: preserve-3d;
-    perspective: 1200px;
     transition:
       transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1),
       opacity 0.4s ease,
@@ -350,7 +408,6 @@
     z-index: -1;
     border-radius: 50%;
     filter: blur(2px);
-    transform: translateZ(-1px);
   }
 
   .book:hover,
@@ -372,18 +429,14 @@
     pointer-events: none;
   }
 
-  /* ═══════════ ПЕРЕДНЯЯ ОБЛОЖКА (та сторона, что видна как «корешок») ═══════════ */
+  /* ═══════════ КОРЕШОК / ОБЛОЖКА ═══════════ */
   .book-spine {
     position: relative;
     width: 100%;
     height: 100%;
     border-radius: 3px 7px 7px 3px;
     overflow: hidden;
-
-    /* 3D-раскрытие вокруг левого края */
-    transform-origin: left center;
     transform-style: preserve-3d;
-    will-change: transform;
 
     background-color: var(--leather-1);
     background-image:
@@ -416,7 +469,6 @@
       inset -4px 0 8px rgba(255, 220, 180, 0.08);
     transition: box-shadow 0.35s ease;
     z-index: 2;
-    backface-visibility: visible;
   }
 
   .book:hover .book-spine,
@@ -514,7 +566,7 @@
     text-shadow: 0 0 8px var(--glow-color);
   }
 
-  /* ═══════════ ЦВЕТА КНИГ (коричневая кожа, разные оттенки) ═══════════ */
+  /* ═══════════ ЦВЕТА КНИГ ═══════════ */
   .book--amplification {
     --leather-1: #4a2e15;    /* тёплый каштановый */
     --leather-2: #1e0f05;
@@ -530,109 +582,31 @@
   }
 
   /* ═══════════════════════════════════════════════════════════
-     СТРАНИЦЫ — раскрываются, когда обложка откидывается
-     ═══════════════════════════════════════════════════════════ */
-  .book-pages {
-    position: absolute;
-    top: 3.5%;
-    bottom: 3.5%;
-    left: 50%;
-    width: 50%;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 1;            /* под обложкой */
-    perspective: 900px;
-    transform-style: preserve-3d;
-  }
-
-  .page {
-    position: absolute;
-    inset: 0;
-    background-color: var(--page-cream);
-    background-image:
-      repeating-linear-gradient(0deg,
-        transparent 0, transparent 7px,
-        rgba(120, 80, 30, 0.055) 7px, rgba(120, 80, 30, 0.055) 8px),
-      radial-gradient(circle at 20% 15%, rgba(120, 80, 30, 0.10), transparent 45%),
-      radial-gradient(circle at 82% 78%, rgba(120, 80, 30, 0.08), transparent 45%),
-      linear-gradient(90deg, #d9ccb0 0%, var(--page-cream) 40%, #e8dcc1 100%);
-    border: 1px solid rgba(80, 60, 30, 0.4);
-    border-left: 2px solid #6a4a1a;
-    border-radius: 0 4px 4px 0;
-    box-shadow:
-      2px 0 8px rgba(0, 0, 0, 0.35),
-      inset 0 0 22px rgba(120, 80, 30, 0.12);
-    transform-origin: left center;
-    transform: rotateY(0deg);
-    backface-visibility: hidden;
-    will-change: transform;
-  }
-
-  /* ═══════════════════════════════════════════════════════════
-     АНИМАЦИЯ РАСКРЫТИЯ КНИГИ (органичная, 2 с)
+     АНИМАЦИЯ: КНИГА ВЫНИМАЕТСЯ С ПОЛКИ
      Фазы:
-       0–15%  подъём книги
-       15–65% обложка откидывается вокруг левого края
-       30–75% проявление страниц
-       55–85% перелистывание каскадом
-       85–100% книга уходит, экран затемняется
+       0–20%  лёгкий подъём и наклон — книга «отрывается» от полки
+       20–70% плавное извлечение вверх-вбок, тень уходит
+       70–100% книга уносится прочь, растворяясь
      ═══════════════════════════════════════════════════════════ */
   .book.opening {
-    animation: bookLift 2s cubic-bezier(0.4, 0, 0.3, 1) forwards;
+    animation: bookPull 1.4s cubic-bezier(0.4, 0, 0.28, 1) forwards;
     pointer-events: none;
     z-index: 100;
     filter: none !important;
   }
 
-  @keyframes bookLift {
-    0%   { transform: translateY(0) scale(1); }
-    15%  { transform: translateY(-42px) scale(1.05); }
-    50%  { transform: translateY(-52px) scale(1.07); }
-    85%  { transform: translateY(-58px) scale(1.09); opacity: 1; }
-    100% { transform: translateY(-70px) scale(1.14); opacity: 0; }
-  }
-
-  /* Передняя обложка раскрывается вокруг левого края */
-  .book.opening .book-spine {
-    animation: coverOpen 1s cubic-bezier(0.45, 0.05, 0.35, 1) 0.3s forwards;
-  }
-
-  @keyframes coverOpen {
-    0%   { transform: rotateY(0deg); }
-    100% { transform: rotateY(-165deg); }
-  }
-
-  /* Страницы проявляются, пока обложка откидывается */
-  .book.opening .book-pages {
-    animation: pagesReveal 0.45s ease-out 0.35s forwards;
-  }
-
-  @keyframes pagesReveal {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-  /* Каскадное перелистывание страниц */
-  .book.opening .page:nth-child(1) { animation: flipPage 0.5s cubic-bezier(0.55, 0.05, 0.45, 0.95) 1.05s forwards; }
-  .book.opening .page:nth-child(2) { animation: flipPage 0.5s cubic-bezier(0.55, 0.05, 0.45, 0.95) 1.12s forwards; }
-  .book.opening .page:nth-child(3) { animation: flipPage 0.5s cubic-bezier(0.55, 0.05, 0.45, 0.95) 1.19s forwards; }
-  .book.opening .page:nth-child(4) { animation: flipPage 0.5s cubic-bezier(0.55, 0.05, 0.45, 0.95) 1.26s forwards; }
-  .book.opening .page:nth-child(5) { animation: flipPage 0.5s cubic-bezier(0.55, 0.05, 0.45, 0.95) 1.33s forwards; }
-  .book.opening .page:nth-child(6) { animation: flipPage 0.5s cubic-bezier(0.55, 0.05, 0.45, 0.95) 1.40s forwards; }
-  .book.opening .page:nth-child(7) { animation: flipPage 0.5s cubic-bezier(0.55, 0.05, 0.45, 0.95) 1.47s forwards; }
-  .book.opening .page:nth-child(8) { animation: flipPage 0.5s cubic-bezier(0.55, 0.05, 0.45, 0.95) 1.54s forwards; }
-
-  @keyframes flipPage {
+  @keyframes bookPull {
     0% {
-      transform: rotateY(0deg);
-      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.35);
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+      opacity: 1;
     }
-    45% {
-      box-shadow: 6px 0 18px rgba(0, 0, 0, 0.45);
+    18% {
+      transform: translate3d(0, -26px, 0) rotate(-1.6deg) scale(1.02);
+      opacity: 1;
     }
     100% {
-      transform: rotateY(-172deg);
-      box-shadow: -2px 0 6px rgba(0, 0, 0, 0.25);
+      transform: translate3d(18px, -68px, 0) rotate(-9deg) scale(1.15);
+      opacity: 0;
     }
   }
 
@@ -703,6 +677,14 @@
     .plank { height: 22px; }
     .plank::before, .plank::after { width: 26px; height: 32px; }
     .shelf--empty .books-stage { min-height: 100px; }
+
+    .back-link {
+      top: 14px;
+      left: 14px;
+      font-size: 0.78em;
+      padding: 8px 14px 8px 11px;
+      gap: 8px;
+    }
   }
 
   @media (max-width: 460px) {
@@ -714,21 +696,38 @@
     .book-symbol { font-size: 0.8em; }
     .book-flourish { font-size: 0.7em; }
     .library-header h1 { font-size: 1.6em; }
+
+    /* На узких экранах — только стрелка, чтобы не мешать заголовку */
+    .back-link {
+      top: 10px;
+      left: 10px;
+      padding: 8px 10px;
+      font-size: 1em;
+    }
+    .back-link__text { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .book { transition: none; }
     .catalog-orb { animation: none; }
-    .book.opening { animation-duration: 0.4s; }
-    .book.opening .book-spine { animation: none; }
-    .book.opening .book-pages { opacity: 1; animation: none; }
-    .book.opening .page { animation: none; opacity: 0.9; }
+    .book.opening { animation-duration: 0.35s; }
     .page-flash { transition: opacity 0.15s ease-in; }
     .hint { animation: none; opacity: 0.7; }
+    .back-link,
+    .back-link__arrow { transition: none; }
   }
 </style>
 </head>
 <body>
+
+<!-- ══════════════ КНОПКА ВОЗВРАТА ══════════════ -->
+<a href="index.html"
+   class="back-link"
+   aria-label="Вернуться в раздел Хроники Эльхара"
+   title="Вернуться в раздел «Хроники Эльхара»">
+  <span class="back-link__arrow" aria-hidden="true">←</span>
+  <span class="back-link__text">Хроники Эльхара</span>
+</a>
 
 <!-- ══════════════ ШАПКА ══════════════ -->
 <header class="library-header">
@@ -770,16 +769,6 @@
           <span class="book-title">Об Амплификации</span>
           <span class="book-flourish">❧</span>
         </div>
-        <div class="book-pages" aria-hidden="true">
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
-        </div>
       </a>
 
       <a href="tractat-poisons.html"
@@ -791,16 +780,6 @@
           <span class="book-symbol">☠</span>
           <span class="book-title">О Ядах</span>
           <span class="book-flourish">❧</span>
-        </div>
-        <div class="book-pages" aria-hidden="true">
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
-          <div class="page"></div>
         </div>
       </a>
 
@@ -847,10 +826,10 @@
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* Полный цикл анимации в CSS = 2000 мс */
-    const openDuration = reduceMotion ? 400 : 2000;
-    /* Затемнение стартует за ~500 мс до перехода */
-    const flashDelay   = reduceMotion ? 150 : 1500;
+    /* Полный цикл анимации извлечения книги = 1400 мс */
+    const openDuration = reduceMotion ? 350 : 1400;
+    /* Затемнение стартует за ~550 мс до перехода */
+    const flashDelay   = reduceMotion ? 120 : 850;
 
     /* ─── Сброс состояния (для возврата «назад» из bfcache) ─── */
     function resetLibraryState() {
@@ -864,7 +843,7 @@
     });
     window.addEventListener('load', resetLibraryState);
 
-    /* ─── Открытие книги ─── */
+    /* ─── Извлечение книги с полки ─── */
     books.forEach(function (book) {
       book.addEventListener('click', function (e) {
         if (navigating) { e.preventDefault(); return; }
@@ -877,7 +856,7 @@
 
         book.classList.add('opening');
 
-        /* затемнение — с задержкой, синхронно с финалом анимации */
+        /* затемнение — синхронно с финалом анимации */
         setTimeout(function () {
           if (flash) flash.classList.add('active');
         }, flashDelay);
