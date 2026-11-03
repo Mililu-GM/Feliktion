@@ -21,7 +21,7 @@
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
-/* ─── Тёмный «стол» под пергаментом (фон как у Географии Мериона) ─── */
+/* ─── Тёмный «стол» под пергаментом ─── */
 body {
   margin: 0;
   padding: 40px 24px;
@@ -52,7 +52,7 @@ body {
     0 35px 90px rgba(0, 0, 0, 0.55);
 }
 
-/* ─── Навигация: кожаная табличка с золотым тиснением ─── */
+/* ─── Навигация: кожаная табличка ─── */
 .top-nav {
   background:
     repeating-linear-gradient(45deg, rgba(0,0,0,0.10) 0, rgba(0,0,0,0.10) 1px, transparent 1px, transparent 4px),
