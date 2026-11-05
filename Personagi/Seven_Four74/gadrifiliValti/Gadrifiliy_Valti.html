@@ -29,6 +29,11 @@
             box-sizing: border-box;
         }
 
+        /* Плавная прокрутка при клике на ссылки */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-cosmos);
             color: var(--text-dark);
@@ -39,7 +44,7 @@
             display: flex;
             justify-content: center;
             min-height: 100vh;
-            overflow-x: hidden; /* Защита от горизонтальной прокрутки от комет */
+            overflow-x: hidden;
             position: relative;
         }
 
@@ -54,7 +59,6 @@
             height: 100%;
             z-index: -1;
             background-color: var(--bg-cosmos);
-            /* Базовое звездное небо */
             background-image: 
                 radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
                 radial-gradient(1px 1px at 40px 70px, #aaddff, rgba(0,0,0,0)),
@@ -67,7 +71,6 @@
             overflow: hidden;
         }
 
-        /* Мерцающие звезды */
         .twinkling-stars {
             position: absolute;
             top: 0;
@@ -84,22 +87,18 @@
             100% { opacity: 1; }
         }
 
-        /* Падающие кометы */
         .comet {
             position: absolute;
             width: 150px;
             height: 2px;
-            /* Светящийся хвост кометы */
             background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(170,221,255,0.8) 50%, #fff 100%);
             border-radius: 50%;
             transform: rotate(45deg);
             opacity: 0;
-            /* Тень для свечения головы */
             box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.6);
             animation: shoot 6s linear infinite;
         }
 
-        /* Настройка траекторий и задержек для разных комет */
         .comet-1 { top: -5%; left: 0%; animation-duration: 5s; animation-delay: 1s; }
         .comet-2 { top: 15%; left: 20%; animation-duration: 7s; animation-delay: 3s; }
         .comet-3 { top: 5%; left: 50%; animation-duration: 6s; animation-delay: 5s; }
@@ -107,28 +106,15 @@
         .comet-5 { top: -10%; left: 80%; animation-duration: 4s; animation-delay: 2s; }
 
         @keyframes shoot {
-            0% { 
-                transform: translateX(-200px) translateY(-200px) rotate(45deg); 
-                opacity: 0; 
-            }
-            5% { 
-                opacity: 1; 
-            }
-            20% { 
-                transform: translateX(1500px) translateY(1500px) rotate(45deg); 
-                opacity: 1; 
-            }
-            25% { 
-                transform: translateX(1700px) translateY(1700px) rotate(45deg); 
-                opacity: 0; 
-            }
-            100% { 
-                opacity: 0; 
-            }
+            0% { transform: translateX(-200px) translateY(-200px) rotate(45deg); opacity: 0; }
+            5% { opacity: 1; }
+            20% { transform: translateX(1500px) translateY(1500px) rotate(45deg); opacity: 1; }
+            25% { transform: translateX(1700px) translateY(1700px) rotate(45deg); opacity: 0; }
+            100% { opacity: 0; }
         }
 
         /* =========================================
-           СТИЛИ КНИГИ (Без изменений)
+           СТИЛИ КНИГИ
            ========================================= */
         .grimoire {
             max-width: 950px;
@@ -390,6 +376,34 @@
             border: none;
         }
 
+        /* Стили для навигационных ссылок в разделе Итерации */
+        .iteration-links {
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 2.2;
+        }
+
+        .iteration-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed var(--gold);
+            transition: color 0.3s, border-bottom-color 0.3s, text-shadow 0.3s;
+        }
+
+        .iteration-links a:hover, .iteration-links a:focus {
+            color: #1a1a2e;
+            border-bottom-color: #1a1a2e;
+            text-shadow: 0 0 8px rgba(197, 160, 89, 0.6);
+            outline: none;
+        }
+
+        .iteration-links span {
+            color: var(--gold);
+            margin: 0 10px;
+            font-size: 1.1rem;
+        }
+
         @media (max-width: 600px) {
             .pages { padding: 2rem 1.5rem; }
             .title-page h1 { font-size: 2.5rem; }
@@ -398,7 +412,10 @@
             .quote { font-size: 1.4rem; padding: 0 1rem; }
             .ability-title { font-size: 1.2rem; }
             .meta-comment { font-size: 1.25rem; padding: 8px 12px; }
+            .iteration-links { font-size: 1.1rem; }
+            .iteration-links span { margin: 0 5px; }
         }
+
         /* ==================== КНОПКА "НАЗАД" ==================== */
         .back-btn {
             position: fixed;
@@ -435,14 +452,14 @@
         }
 
         @media (max-width: 600px) {
-        .back-btn {
-            top: 12px;
-            left: 12px;
-            padding: 8px 14px;
-            font-size: 0.72rem;
-            letter-spacing: 0.1em;
-    }
-}
+            .back-btn {
+                top: 12px;
+                left: 12px;
+                padding: 8px 14px;
+                font-size: 0.72rem;
+                letter-spacing: 0.1em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -507,14 +524,23 @@
                     </ul>
 
                     <h2>Итерации</h2>
-                    <p>Алхимик • Аристократ • Кукловод • Легион • Палач • Святой • Тишина • Трикстер</p>
+                    <div class="iteration-links">
+                        <a href="#alchemist">Алхимик</a> <span>•</span>
+                        <a href="#aristocrat">Аристократ</a> <span>•</span>
+                        <a href="#puppeteer">Кукловод</a> <span>•</span>
+                        <a href="#legion">Легион</a> <span>•</span>
+                        <a href="#executioner">Палач</a> <span>•</span>
+                        <a href="#saint">Святой</a> <span>•</span>
+                        <a href="#silence">Тишина</a> <span>•</span>
+                        <a href="#trickster">Трикстер</a>
+                    </div>
                 </div>
             </section>
 
             <hr class="divider">
 
             <!-- Итерация 1: Аристократ -->
-            <section class="section-block">
+            <section class="section-block" id="aristocrat">
                 <h1 class="iteration-title">Аристократ</h1>
                 <div class="image-frame">
                     <img src="aristo.jpg" alt="Аристократ">
@@ -541,7 +567,7 @@
             <hr class="divider">
 
             <!-- Итерация 2: Алхимик -->
-            <section class="section-block">
+            <section class="section-block" id="alchemist">
                 <h1 class="iteration-title">Алхимик</h1>
                 <div class="image-frame">
                     <img src="alhimi.jpg" alt="Алхимик">
@@ -568,7 +594,7 @@
             <hr class="divider">
 
             <!-- Итерация 3: Кукловод -->
-            <section class="section-block">
+            <section class="section-block" id="puppeteer">
                 <h1 class="iteration-title">Кукловод</h1>
                 <div class="image-frame">
                     <img src="kuklovod.jpg" alt="Кукловод">
@@ -596,7 +622,7 @@
             <hr class="divider">
 
             <!-- Итерация 4: Тишина -->
-            <section class="section-block">
+            <section class="section-block" id="silence">
                 <h1 class="iteration-title">Тишина</h1>
                 <div class="image-frame">
                     <img src="tihina.jpg" alt="Тишина">
@@ -623,7 +649,7 @@
             <hr class="divider">
 
             <!-- Итерация 5: Палач -->
-            <section class="section-block">
+            <section class="section-block" id="executioner">
                 <h1 class="iteration-title">Палач</h1>
                 <div class="image-frame">
                     <img src="palah.jpg" alt="Палач">
@@ -651,7 +677,7 @@
             <hr class="divider">
 
             <!-- Итерация 6: Святой -->
-            <section class="section-block">
+            <section class="section-block" id="saint">
                 <h1 class="iteration-title">Святой</h1>
                 <div class="image-frame">
                     <img src="svitoi.jpg" alt="Святой">
@@ -679,7 +705,7 @@
             <hr class="divider">
 
             <!-- Итерация 7: Трикстер -->
-            <section class="section-block">
+            <section class="section-block" id="trickster">
                 <h1 class="iteration-title">Трикстер</h1>
                 <div class="image-frame">
                     <img src="trikster.jpg" alt="Трикстер">
@@ -706,7 +732,7 @@
             <hr class="divider">
 
             <!-- Итерация 8: Легион -->
-            <section class="section-block">
+            <section class="section-block" id="legion">
                 <h1 class="iteration-title">Легион</h1>
                 <div class="image-frame">
                     <img src="legion.jpg" alt="Легион">
