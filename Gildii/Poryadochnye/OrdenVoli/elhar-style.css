@@ -1,0 +1,305 @@
+/* =============================================================
+   elhar-style.css — Кодекс Эльхара
+   Минимальный набор правил, используемый 10 страницами цикла
+   ============================================================= */
+
+:root {
+  --parchment: #f2ecdd;
+  --ink: #1a0e05;
+  --ink-soft: #3a2515;
+  --gold: #c9a961;
+  --gold-light: #d4b570;
+  --gold-bright: #e6c885;
+  --gold-deep: #8a6d34;
+  --deepred: #5a1a08;
+  --boxback: #f2e4c4;
+  --boxshadow: rgba(20, 10, 5, 0.15);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  padding: 40px 24px;
+  min-height: 100vh;
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #e8e4d9;
+  background-color: #0e1117;
+  background-image:
+    radial-gradient(circle at 15% 0%, #1b2233 0%, transparent 55%),
+    radial-gradient(circle at 85% 100%, #221c14 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* ─── Пергаментный лист ─── */
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 45px 55px 70px;
+  color: var(--ink);
+  background: var(--parchment);
+  border: 1px solid rgba(201, 169, 97, 0.45);
+  border-radius: 3px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 12px 45px rgba(0, 0, 0, 0.65),
+    0 35px 90px rgba(0, 0, 0, 0.55);
+}
+
+/* ─── Навигация ─── */
+.top-nav {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.10) 0, rgba(0,0,0,0.10) 1px, transparent 1px, transparent 4px),
+    linear-gradient(135deg, #3a1a08 0%, #1a0a04 100%);
+  border: 1px solid var(--gold);
+  border-top: 3px solid var(--gold);
+  border-radius: 4px;
+  padding: 18px 22px 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 28px rgba(20,10,5,0.30), inset 0 1px 0 rgba(255,210,150,0.12);
+}
+
+.nav-header {
+  text-align: center;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(201,169,97,0.40);
+  color: var(--gold-bright);
+  font-family: 'Playfair Display', serif;
+  font-size: 1em;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.nav-rune {
+  color: var(--gold);
+  font-size: 0.9em;
+  opacity: 0.85;
+  text-shadow: 0 0 10px rgba(212,168,87,0.5);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3px 4px;
+}
+
+.nav-links a {
+  padding: 6px 12px;
+  color: rgba(242,228,196,0.72);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 0.82em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--gold-bright);
+  background: rgba(201,169,97,0.10);
+  border-color: rgba(201,169,97,0.25);
+  border-bottom-color: var(--gold);
+  outline: none;
+}
+.nav-links a.active {
+  color: var(--gold-bright);
+  background: rgba(201,169,97,0.18);
+  border-color: rgba(201,169,97,0.55);
+  border-bottom-color: var(--gold);
+  text-shadow: 0 0 8px rgba(212,168,87,0.35);
+}
+
+/* ─── Заголовки ─── */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--gold-bright);
+  margin: 0 0 2rem;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-align: center;
+  padding: 1.3rem 1.5rem 1.1rem;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.10) 0, rgba(0,0,0,0.10) 1px, transparent 1px, transparent 4px),
+    linear-gradient(135deg, #3a1a08 0%, #1a0a04 100%);
+  border: 1px solid var(--gold);
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(20,10,5,0.35), inset 0 1px 0 rgba(255,210,150,0.15);
+  text-shadow: 0 0 30px rgba(212,168,87,0.30), 0 2px 3px rgba(0,0,0,0.7);
+}
+h1::after {
+  content: "✦ ❦ ✦";
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--gold);
+  font-style: normal;
+  font-size: 0.55em;
+  letter-spacing: 0.5em;
+  padding-left: 0.5em;
+  opacity: 0.80;
+  text-shadow: 0 0 8px rgba(212,168,87,0.4);
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--gold-bright);
+  margin-top: 2.6rem;
+  margin-bottom: 1.2rem;
+  padding: 0.75rem 1.2rem;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.10) 0, rgba(0,0,0,0.10) 1px, transparent 1px, transparent 4px),
+    linear-gradient(135deg, #3a1a08 0%, #1a0a04 100%);
+  border: 1px solid var(--gold);
+  border-left: 4px solid var(--gold-bright);
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 4px 14px rgba(20,10,5,0.25), inset 0 1px 0 rgba(255,210,150,0.10);
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 20px rgba(212,168,87,0.25), 0 1px 2px rgba(0,0,0,0.6);
+  scroll-margin-top: 20px;
+}
+
+/* ─── Текст ─── */
+p { margin-bottom: 1.15rem; text-align: justify; color: var(--ink); }
+strong { color: var(--ink); font-weight: 700; }
+em { color: var(--ink-soft); }
+
+a {
+  color: var(--gold-deep);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold-deep);
+  transition: color 0.2s, border-color 0.2s;
+}
+a:hover {
+  color: var(--deepred);
+  border-bottom-style: solid;
+  border-bottom-color: var(--deepred);
+}
+
+/* ─── Вводный блок ─── */
+.intro {
+  font-style: italic;
+  color: var(--ink-soft);
+  background: var(--boxback);
+  padding: 1.5rem 1.8rem;
+  border: 1px solid var(--gold-light);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 14px var(--boxshadow), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+.intro p { margin-bottom: 0.7rem; }
+.intro p:last-child { margin-bottom: 0; }
+.intro strong { color: var(--deepred); font-style: normal; }
+
+.intro-block {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+.intro-block .intro { flex: 1; margin-bottom: 0; }
+
+/* ─── Содержание ─── */
+.toc {
+  background: var(--boxback);
+  border: 1px solid var(--gold-light);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 18px var(--boxshadow);
+}
+.toc strong {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: var(--deepred);
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+.toc a { display: inline-block; margin-right: 1rem; margin-bottom: 0.4rem; }
+
+/* ─── Плейсхолдеры иллюстраций ─── */
+.img-round {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--boxback);
+  border: 2px dashed var(--gold-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  padding: 0.6rem;
+}
+.img-round img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+
+.img-wide {
+  width: 100%;
+  height: 240px;
+  margin: 1.8rem 0;
+  background: var(--boxback);
+  border: 2px dashed var(--gold-deep);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--gold-deep);
+}
+.img-wide img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; display: block; }
+
+/* ─── Подпись ─── */
+.note {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--gold-light);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.7;
+}
+.note p { text-align: center; margin-bottom: 0.5rem; }
+
+/* ─── Адаптив ─── */
+@media (max-width: 700px) {
+  body { padding: 20px 12px; font-size: 16px; }
+  .page { padding: 28px 20px 45px; }
+  .top-nav { padding: 14px 14px 16px; border-top-width: 2px; }
+  .nav-header { font-size: 0.9em; letter-spacing: 0.2em; }
+  .nav-links a { padding: 5px 9px; font-size: 0.75em; }
+  h1 { font-size: 1.6rem; padding: 1rem 1rem 0.9rem; }
+  h2 { font-size: 1.15rem; padding: 0.6rem 1rem; margin-top: 2rem; }
+  .intro-block { flex-direction: column; align-items: center; }
+  .img-round { width: 130px; height: 130px; }
+  .img-wide { height: 180px; }
+  .intro { padding: 1.2rem 1.3rem; }
+  .toc { padding: 1rem 1.2rem; }
+}

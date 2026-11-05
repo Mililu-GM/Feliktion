@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Хаотичные гильдии — Гильдии Мериона</title>
+<style>
+  :root{
+    --bg:#0e1117; --panel:#161b26; --panel-2:#1d2433;
+    --accent:#d4a857; --accent-soft:#8a6d34;
+    --text:#e8e4d9; --muted:#9aa3b2; --line:#2a3346;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:"Georgia","Times New Roman",serif; color:var(--text);
+    background:
+      radial-gradient(circle at 15% 0%, #1b2233 0%, transparent 55%),
+      radial-gradient(circle at 85% 100%, #221c14 0%, transparent 50%),
+      var(--bg);
+    line-height:1.65;
+  }
+  header.hero{
+    position:relative;
+    text-align:center; padding:70px 20px 45px; border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(212,168,87,.08), transparent);
+  }
+  header.hero h1{
+    margin:0 0 10px; font-size:clamp(2rem,5vw,3.2rem);
+    letter-spacing:.06em; color:var(--accent);
+    text-shadow:0 0 24px rgba(212,168,87,.25);
+  }
+  header.hero p{margin:0; color:var(--muted); font-style:italic;}
+
+  .back-btn{
+    position:absolute; top:24px; left:24px;
+    display:inline-flex; align-items:center; gap:8px;
+    padding:9px 16px; border-radius:10px;
+    font-family:system-ui,sans-serif; font-size:.82rem;
+    letter-spacing:.08em; text-transform:uppercase;
+    text-decoration:none; color:var(--muted);
+    background:rgba(22,27,38,.7);
+    border:1px solid var(--line);
+    backdrop-filter:blur(4px);
+    transition:color .25s, border-color .25s, background .25s, transform .2s;
+  }
+  .back-btn:hover, .back-btn:focus{
+    color:var(--accent);
+    border-color:var(--accent-soft);
+    background:var(--panel-2);
+    transform:translateX(-2px);
+    outline:none;
+  }
+
+  .wrap{max-width:1100px; margin:0 auto; padding:50px 20px 90px;}
+
+  .grid{
+    display:grid; gap:20px;
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+  }
+  .card{
+    display:block; text-decoration:none; color:inherit;
+    background:var(--panel); border:1px solid var(--line);
+    border-left:4px solid var(--accent-soft); border-radius:14px;
+    padding:22px 24px; transition:border-color .25s, transform .25s, background .25s;
+  }
+  .card:hover, .card:focus{
+    border-left-color:var(--accent); background:var(--panel-2);
+    transform:translateY(-3px); outline:none;
+  }
+  .card h2{margin:0 0 4px; font-size:1.25rem; color:var(--accent);}
+  .card .type{
+    display:block; font-family:system-ui,sans-serif; font-size:.66rem;
+    text-transform:uppercase; letter-spacing:.16em; color:var(--muted);
+    margin-bottom:10px;
+  }
+  .card p{margin:0; font-size:.92rem; color:#cfd3db;}
+
+  footer{
+    text-align:center; padding:30px 20px 50px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:.85rem; font-style:italic;
+  }
+
+  @media (max-width:520px){
+    header.hero{padding-top:80px;}
+    .back-btn{top:18px; left:16px; padding:7px 12px; font-size:.72rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="back-btn" href="../Gildii.html">← Назад</a>
+  <h1>Хаотичные гильдии</h1>
+  <p>Теневые союзы, тёмные культы и силы хаоса</p>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+
+    <a class="card" href="#">
+      <h2>Гильдия теней</h2>
+      <span class="type">Воры и шпионы</span>
+      <p>Воры и убийцы, наёмники и шпионы, теневой мир Найгеля, Антара и, когда-то, — Дегеримы.</p>
+    </a>
+
+    <a class="card" href="#">
+      <h2>Душегубы</h2>
+      <span class="type">Разбойники Эльхара</span>
+      <p>Разбойники, убийцы и отчаянные рубаки, мечтающие захватить преступный мир Эльхара.</p>
+    </a>
+
+    <a class="card" href="#">
+      <h2>Орден Гарроты</h2>
+      <span class="type">Элитные убийцы</span>
+      <p>Элитные, профессиональные и хладнокровные убийцы на службе у богатых и влиятельных.</p>
+    </a>
+
+    <a class="card" href="#">
+      <h2>Орден Ньярла</h2>
+      <span class="type">Тёмные маги</span>
+      <p>Тёмные маги, некроманты, жуткие существа — главное зло Эльхара.</p>
+    </a>
+
+    <a class="card" href="#">
+      <h2>Эра проклятых</h2>
+      <span class="type">Нечисть хаоса</span>
+      <p>Проклятая, безумная, алчная, озлобленная нечисть, что жаждет ввести бытие мира в хаос, дабы на костях и морях крови невинных сделать новый мир, где монстры правят теми, у кого есть человечность.</p>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <p>Гильдии · Хаотичные гильдии</p>
+</footer>
+
+</body>
+</html>
