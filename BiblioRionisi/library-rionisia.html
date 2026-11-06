@@ -529,13 +529,19 @@
     z-index: 6;
   }
 
+  /* ★ Единый стиль значков: принудительно текстовое представление ★ */
   .book-symbol {
     top: 6%;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.05em;
+    line-height: 1;
     color: var(--accent);
     text-shadow: 0 0 10px var(--glow-color), 0 1px 2px rgba(0,0,0,0.95);
+    /* подстраховка от цветных эмодзи */
+    font-variant-emoji: text;
+    -webkit-font-feature-settings: "liga" 1;
+            font-feature-settings: "liga" 1;
   }
 
   .book-title {
@@ -755,9 +761,22 @@
 <!-- ══════════════ БИБЛИОТЕКА ══════════════ -->
 <div class="library">
 
-  <!-- ═══ ПОЛКА I · ДВА ТРАКТАТА ═══ -->
+  <!-- ═══ ПОЛКА I · ТРАКТАТЫ ═══ -->
   <section class="shelf">
     <div class="books-stage">
+
+      <a href="Pharmacy/tractat-pharmacy.html"
+         class="book book--poisons"
+         aria-label="Открыть: О Фармации"
+         title="О Фармации · Рионисия Луфар">
+        <div class="book-spine">
+          <span class="book-frame" aria-hidden="true"></span>
+          <!-- U+2697 U+FE0E — алхимический алембик в текстовом (монохромном) представлении -->
+          <span class="book-symbol" aria-hidden="true">⚗︎</span>
+          <span class="book-title">О Фармации</span>
+          <span class="book-flourish">❧</span>
+        </div>
+      </a>
 
       <a href="Amplification/tractat-amplification.html"
          class="book book--amplification"
@@ -765,7 +784,7 @@
          title="Об Амплификации · Рионисия Луфар">
         <div class="book-spine">
           <span class="book-frame" aria-hidden="true"></span>
-          <span class="book-symbol">❦</span>
+          <span class="book-symbol" aria-hidden="true">❦</span>
           <span class="book-title">Об Амплификации</span>
           <span class="book-flourish">❧</span>
         </div>
@@ -777,7 +796,7 @@
          title="О Ядах · Рионисия Луфар">
         <div class="book-spine">
           <span class="book-frame" aria-hidden="true"></span>
-          <span class="book-symbol">☠</span>
+          <span class="book-symbol" aria-hidden="true">☠</span>
           <span class="book-title">О Ядах</span>
           <span class="book-flourish">❧</span>
         </div>

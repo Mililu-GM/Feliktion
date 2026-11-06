@@ -1,0 +1,596 @@
+:root {
+  --parchment: #f2ecdd;
+  --parchment-dark: #e8e2d0;
+  --ink: #1a0e05;
+  --gold: #c9a961;
+  --gold-light: #d4b570;
+  --gold-bright: #e6c885;
+  --deepred: #5a1a08;
+  --forest: #3a2410;
+  --boxback: #f2e4c4;
+  --boxshadow: rgba(20, 10, 5, 0.25);
+  --leather-dark:   #0a0503;
+  --leather-mid:    #1a0c05;
+  --leather-base:   #2c1608;
+  --leather-high:   #4a2810;
+  --leather-light:  #6a3e18;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 60px 45px 90px;
+  color: var(--ink);
+  font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.65;
+  background-color: var(--leather-base);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.10) 0px, rgba(0,0,0,0.10) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(-45deg, rgba(0,0,0,0.07) 0px, rgba(0,0,0,0.07) 1px, transparent 1px, transparent 5px),
+    repeating-linear-gradient(90deg, rgba(255,200,140,0.025) 0px, rgba(255,200,140,0.025) 1px, transparent 1px, transparent 3px),
+    repeating-conic-gradient(from 20deg at 28% 22%, rgba(0,0,0,0.05) 0deg 2deg, transparent 2deg 5deg),
+    repeating-conic-gradient(from 0deg at 74% 78%, rgba(255,200,140,0.035) 0deg 3deg, transparent 3deg 7deg),
+    repeating-conic-gradient(from 90deg at 50% 50%, rgba(0,0,0,0.025) 0deg 4deg, transparent 4deg 9deg),
+    radial-gradient(ellipse at 20% 8%,  rgba(160,90,40,0.45), transparent 55%),
+    radial-gradient(ellipse at 82% 92%, rgba(40,15,5,0.65), transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(90,50,20,0.28), transparent 70%),
+    linear-gradient(135deg, var(--leather-base) 0%, var(--leather-mid) 50%, var(--leather-dark) 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  bottom: 32px; right: 32px;
+  width: 130px; height: 130px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='55' fill='none' stroke='%23a07a3a' stroke-width='2.2'/%3E%3Ccircle cx='60' cy='60' r='49' fill='none' stroke='%23e6c885' stroke-width='0.9'/%3E%3Ccircle cx='60' cy='60' r='38' fill='none' stroke='%23a07a3a' stroke-width='0.9'/%3E%3Cpolygon points='60,18 88,95 24,45 96,45 32,95' fill='none' stroke='%23e6c885' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cpath d='M 60 32 A 28 28 0 1 0 60 88 A 22 22 0 1 1 60 32' fill='%233a2410' opacity='0.75'/%3E%3Ccircle cx='60' cy='60' r='2.5' fill='%23e6c885'/%3E%3C/svg%3E");
+  background-size: contain; background-repeat: no-repeat;
+  opacity: 0.82; pointer-events: none; z-index: 5;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.90)) drop-shadow(0 -1px 0 rgba(255,200,140,0.15));
+}
+
+body::after {
+  content: "";
+  position: fixed; top: 0; right: 34px;
+  width: 24px; height: 100vh;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.12) 0px, rgba(0,0,0,0.12) 1px, transparent 1px, transparent 3px),
+    linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 18%, rgba(255,210,150,0.45) 50%, rgba(0,0,0,0.15) 82%, rgba(0,0,0,0.45) 100%),
+    linear-gradient(180deg, #2a1508 0%, #4a2810 6%, #c9a961 14%, #b89050 50%, #4a2810 88%, #2a1508 100%);
+  box-shadow: -3px 0 8px rgba(0,0,0,0.60), 3px 0 8px rgba(0,0,0,0.60);
+  clip-path: polygon(0 0, 100% 0, 100% 96%, 50% 100%, 0 96%);
+  pointer-events: none; z-index: 4;
+}
+
+.book {
+  max-width: 800px; margin: 0 auto;
+  padding: 55px 60px 65px;
+  background: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at center, rgba(255,255,255,0.5), transparent 85%),
+    repeating-linear-gradient(0deg, rgba(138,106,36,0.025) 0px, rgba(138,106,36,0.025) 1px, transparent 1px, transparent 3px);
+  border: 2px solid var(--gold);
+  position: relative; z-index: 10;
+  box-shadow:
+    0 0 0 9px  var(--leather-base),
+    0 0 0 10px var(--leather-high),
+    0 0 0 11px var(--gold),
+    0 0 0 12px var(--leather-mid),
+    0 0 30px 6px  rgba(0,0,0,0.70),
+    0 35px 90px  rgba(0,0,0,0.80),
+    inset 0 0 130px rgba(212,168,87,0.08);
+}
+
+.book::before,
+.book::after {
+  content: ""; position: absolute;
+  width: 40px; height: 40px;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+}
+.book::before { top: 14px; left: 14px; border-right: none; border-bottom: none; }
+.book::after  { bottom: 14px; right: 14px; border-left: none; border-top: none; }
+
+/* ===== ТИТУЛ ===== */
+.title-page { text-align: center; padding: 40px 0 60px; page-break-after: always; }
+.title-page h1 {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-size: 3.6em; font-weight: 900;
+  color: var(--deepred);
+  margin: 0.2em 0 0; letter-spacing: 0.02em; line-height: 1.05;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+}
+.title-page h2 {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-size: 2.2em; font-weight: 500; font-style: italic;
+  color: var(--deepred);
+  margin: 0.15em 0 0.6em; letter-spacing: 0.04em;
+}
+.ornament {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; margin: 26px auto; max-width: 340px;
+}
+.ornament::before, .ornament::after {
+  content: ""; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.ornament .diamond {
+  width: 10px; height: 10px;
+  background: var(--gold);
+  transform: rotate(45deg); flex-shrink: 0;
+  box-shadow: 0 0 0 2px var(--parchment), 0 0 0 3px var(--gold);
+}
+.title-page .subtitle {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-style: italic; font-size: 1.5em;
+  color: var(--gold); margin: 0.4em 0; letter-spacing: 0.04em;
+}
+.title-page .signature-block { margin-top: 90px; font-size: 1.05em; }
+.title-page .signature-block .author {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-size: 2em; font-weight: 700;
+  color: var(--ink); margin: 10px 0 6px;
+}
+.title-page .signature-block .role {
+  font-family: 'PT Sans', sans-serif; font-style: normal;
+  color: var(--gold); font-size: 0.95em;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.title-page .place {
+  margin-top: 70px;
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-style: italic; font-size: 1.2em;
+  color: var(--gold); letter-spacing: 0.04em; line-height: 1.5;
+}
+
+/* ===== ПРЕДИСЛОВИЕ ===== */
+.preface { page-break-after: always; padding: 20px 0 40px; }
+.preface h3 {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-size: 2em; font-weight: 700; font-style: italic;
+  color: var(--deepred); text-align: center;
+  margin: 0 0 32px; letter-spacing: 0.04em;
+}
+.preface .quote {
+  max-width: 600px; margin: 0 auto;
+  padding: 34px 42px;
+  font-style: italic; font-size: 1.05em;
+  color: var(--ink);
+  background: var(--boxback);
+  border: 1px solid var(--gold-light);
+  border-left: 4px solid var(--gold);
+  border-right: 4px solid var(--gold);
+  position: relative;
+  box-shadow: 0 2px 14px var(--boxshadow);
+}
+.preface .quote {
+  max-width: 600px; margin: 0 auto;
+  padding: 44px 46px 46px;           /* было 34px 42px — чуть просторнее */
+  font-style: italic; font-size: 1.05em;
+  color: var(--ink);
+  background: var(--boxback);
+  border: 1px solid var(--gold-light);
+  border-left: 4px solid var(--gold);
+  border-right: 4px solid var(--gold);
+  position: relative;
+  box-shadow: 0 2px 14px var(--boxshadow);
+}
+.preface .quote::before {
+  content: "«";
+  position: absolute;
+  top: 6px; left: 14px;
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;                    /* было 5em — меньше и компактнее */
+  color: var(--gold); line-height: 1; font-weight: 900;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.preface .quote::after {
+  content: "»";
+  position: absolute;
+  bottom: 6px; right: 14px;          /* было bottom: -54px — теперь внутри рамки */
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;                    /* было 5em */
+  color: var(--gold); line-height: 1; font-weight: 900;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.preface .attribution {
+  text-align: center; margin-top: 30px;   /* было 34px, но теперь безопасно */
+  font-family: 'PT Sans', sans-serif; font-size: 0.9em;
+  color: var(--gold); letter-spacing: 0.12em;
+}
+.preface .attribution {
+  text-align: center; margin-top: 34px;
+  font-family: 'PT Sans', sans-serif; font-size: 0.9em;
+  color: var(--gold); letter-spacing: 0.12em;
+}
+
+/* ===== ОГЛАВЛЕНИЕ — ПЕРГАМЕНТНАЯ ПОДЛОЖКА ===== */
+.toc {
+  margin: 40px auto 55px;
+  padding: 42px 48px 38px;
+  max-width: 640px;
+  background: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at center, rgba(255,255,255,0.55), transparent 85%),
+    repeating-linear-gradient(0deg,
+      rgba(138,106,36,0.028) 0px,
+      rgba(138,106,36,0.028) 1px,
+      transparent 1px,
+      transparent 3px);
+  border: 1px solid var(--gold);
+  position: relative;
+  box-shadow:
+    0 0 0 4px var(--parchment),
+    0 0 0 5px var(--gold-light),
+    0 0 0 6px var(--gold),
+    0 6px 26px rgba(20,10,5,0.28),
+    inset 0 0 60px rgba(212,168,87,0.09);
+  page-break-after: always;
+}
+.toc::before, .toc::after {
+  content: ""; position: absolute;
+  width: 22px; height: 22px;
+  border: 1px solid var(--gold); pointer-events: none;
+}
+.toc::before { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+.toc::after  { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+.toc h3 {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-size: 1.9em; font-weight: 700; font-style: italic;
+  color: var(--deepred); text-align: center;
+  margin: 0 0 28px; letter-spacing: 0.04em;
+  position: relative; padding-bottom: 16px;
+}
+.toc h3::after {
+  content: ""; position: absolute;
+  left: 50%; bottom: 0; transform: translateX(-50%);
+  width: 90px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.toc-list { list-style: none; padding: 0; margin: 0; }
+.toc-list li {
+  margin: 0 0 4px;
+  border-bottom: 1px dotted rgba(201, 169, 97, 0.45);
+}
+.toc-list li:last-child { border-bottom: none; }
+.toc-list a {
+  display: flex; align-items: baseline; gap: 14px;
+  padding: 12px 8px;
+  text-decoration: none; color: var(--ink);
+  transition: background 0.2s ease;
+}
+.toc-list a:hover { background: rgba(201, 169, 97, 0.12); }
+.toc-list .toc-num {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-size: 1.4em; font-weight: 700; font-style: italic;
+  color: var(--gold); flex-shrink: 0; width: 55px;
+  text-align: center; line-height: 1;
+}
+.toc-list .toc-text { display: flex; flex-direction: column; gap: 2px; }
+.toc-list .toc-title {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-size: 1.15em; font-weight: 700;
+  color: var(--deepred); letter-spacing: 0.01em;
+}
+.toc-list .toc-sub {
+  font-size: 0.85em; font-style: italic;
+  color: var(--forest); opacity: 0.8;
+}
+
+/* ===== РАЗДЕЛИТЕЛИ ЧАСТЕЙ ===== */
+.part-divider {
+  text-align: center;
+  margin: 70px 0 45px;
+  padding: 25px 0 20px;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  page-break-before: always;
+  page-break-after: avoid;
+  position: relative;
+}
+.book > .tractate-nav + .part-divider { margin-top: 10px; }
+.part-divider h2 {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-size: 2.3em; font-weight: 700; font-style: italic;
+  color: var(--deepred); margin: 0; letter-spacing: 0.08em;
+}
+.part-divider .part-subtitle {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 0.8em; font-weight: 700;
+  color: #a07a3a; letter-spacing: 0.2em;
+  text-transform: uppercase; margin-top: 6px;
+}
+.part-divider .part-ornament {
+  font-size: 1.4em; color: var(--gold);
+  margin-top: 4px; letter-spacing: 0.6em;
+}
+
+/* ===== РЕЦЕПТЫ ===== */
+.recipe {
+  background: var(--boxback);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  margin: 44px 0;
+  padding: 0 0 22px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 4px 16px var(--boxshadow);
+  page-break-inside: avoid;
+  position: relative; overflow: hidden;
+}
+.recipe-header {
+  background: linear-gradient(180deg, #3a1a08 0%, #1a0a04 100%);
+  color: var(--gold-bright);
+  padding: 16px 26px;
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-size: 1.45em; font-weight: 700;
+  letter-spacing: 0.02em; text-align: center;
+  border-bottom: 2px solid var(--gold);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.65);
+}
+.recipe-body { padding: 20px 26px 0; }
+.recipe .effect {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  background: rgba(58, 36, 16, 0.06);
+  border-left: 3px solid var(--forest);
+  font-style: italic;
+}
+.recipe .effect strong {
+  font-style: normal; font-family: 'PT Sans', sans-serif;
+  font-size: 0.85em; color: var(--forest);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  margin-right: 6px;
+}
+.recipe h4 {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 0.85em; font-weight: 700;
+  color: var(--forest);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin: 18px 0 8px;
+}
+.recipe ul.ingredients { list-style: none; padding: 0; margin: 0 0 16px; }
+.recipe ul.ingredients li {
+  padding: 4px 0 4px 22px;
+  position: relative;
+  font-size: 0.97em; line-height: 1.55;
+  border-bottom: 1px dotted rgba(201, 169, 97, 0.35);
+}
+.recipe ul.ingredients li:last-child { border-bottom: none; }
+.recipe ul.ingredients li::before {
+  content: "✦"; position: absolute; left: 4px; top: 4px;
+  color: var(--gold); font-size: 0.7em;
+}
+.recipe .preparation { margin: 14px 0; text-align: justify; }
+.recipe .duration {
+  margin: 12px 0 0;
+  padding: 8px 12px;
+  background: rgba(201, 169, 97, 0.10);
+  border-left: 3px solid var(--gold);
+  font-size: 0.95em;
+}
+.recipe .duration strong {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 0.85em; color: var(--forest);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  margin-right: 6px;
+}
+.recipe .note {
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  font-style: italic;
+  color: var(--deepred);
+  border-top: 1px solid rgba(201,169,97,0.35);
+  font-size: 0.96em; line-height: 1.6;
+}
+.recipe .note::before {
+  content: "❧ "; color: var(--gold); font-style: normal;
+}
+
+/* ===== КОЛОФОН ===== */
+.colophon { text-align: center; margin-top: 60px; padding-top: 20px; }
+.colophon .name {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-style: italic; font-size: 1.7em;
+  color: var(--deepred); margin: 20px 0 6px;
+}
+.colophon .role {
+  font-family: 'PT Sans', sans-serif; font-size: 0.85em;
+  color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase;
+}
+.colophon .blessing {
+  margin-top: 30px; font-style: italic; font-size: 1em;
+  color: var(--ink); opacity: 0.85;
+}
+
+/* ===== НАВИГАЦИЯ ПО РАЗДЕЛАМ ===== */
+.tractate-nav {
+  margin: 0 0 35px;
+  padding: 0 0 22px;
+  border-bottom: 1px solid var(--gold);
+  text-align: center;
+}
+.tractate-nav .nav-label {
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-style: italic;
+  font-size: 1.05em;
+  color: var(--deepred);
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+.tractate-nav .nav-links {
+  display: flex; flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px 8px;
+}
+.tractate-nav .nav-links a {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 0.72em; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  text-decoration: none;
+  color: var(--forest);
+  padding: 4px 9px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.tractate-nav .nav-links a:hover {
+  color: var(--deepred);
+  border-color: var(--gold);
+  background: rgba(201, 169, 97, 0.12);
+}
+.tractate-nav .nav-links a.active {
+  color: var(--gold-bright);
+  background: linear-gradient(180deg, #3a1a08 0%, #1a0a04 100%);
+  border-color: var(--gold);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* ===== НАВИГАЦИЯ ВНИЗУ ===== */
+.page-nav-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 55px;
+  padding-top: 22px;
+  border-top: 2px solid var(--gold);
+}
+.page-nav-bottom a {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 0.76em; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none;
+  color: var(--forest);
+  padding: 7px 15px;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  background: rgba(201, 169, 97, 0.08);
+  transition: all 0.2s ease;
+}
+.page-nav-bottom a:hover {
+  color: var(--deepred);
+  background: rgba(201, 169, 97, 0.22);
+  border-color: var(--deepred);
+}
+.page-nav-bottom a.nav-center {
+  background: transparent;
+  border-color: transparent;
+  color: var(--deepred);
+  font-family: 'Playfair Display', 'PT Serif', serif;
+  font-style: italic;
+  text-transform: none;
+  font-size: 0.95em;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  padding: 7px 10px;
+}
+.page-nav-bottom a.nav-center:hover {
+  text-decoration: underline;
+  background: transparent;
+  border-color: transparent;
+}
+
+/* ===== КНОПКА «В БИБЛИОТЕКУ» ===== */
+.back-to-library {
+  position: fixed; top: 22px; left: 22px; z-index: 900;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px 10px 14px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 0.8em; font-weight: 700;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold-bright);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.12) 0, rgba(0,0,0,0.12) 1px, transparent 1px, transparent 4px),
+    linear-gradient(135deg, #3a1a08 0%, #1a0a04 100%);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,210,150,0.15), inset 0 -2px 4px rgba(0,0,0,0.45);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease, color 0.25s ease;
+  cursor: pointer; outline: none;
+  opacity: 0;
+  animation: backBtnFadeIn 0.7s ease-out 0.5s forwards;
+}
+@keyframes backBtnFadeIn { to { opacity: 1; } }
+.back-to-library::before {
+  content: "←"; font-size: 1.2em; line-height: 1;
+  color: var(--gold);
+  transition: transform 0.3s ease, color 0.25s ease;
+}
+.back-to-library:hover, .back-to-library:focus-visible {
+  transform: translateY(-2px); color: #f5e5b8;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.70), 0 0 24px rgba(201,169,97,0.40), inset 0 1px 0 rgba(255,210,150,0.22), inset 0 -2px 4px rgba(0,0,0,0.45);
+}
+.back-to-library:hover::before, .back-to-library:focus-visible::before {
+  transform: translateX(-3px); color: #f5e5b8;
+}
+.back-to-library:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 3px; }
+.back-to-library:active { transform: translateY(0); }
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 700px) {
+  body { padding: 40px 22px 60px; font-size: 16px; }
+  body::before { width: 70px; height: 70px; bottom: 12px; right: 12px; opacity: 0.55; }
+  body::after { display: none; }
+  .book {
+    padding: 30px 22px 40px;
+    box-shadow:
+      0 0 0 5px  var(--leather-base),
+      0 0 0 6px  var(--leather-high),
+      0 0 0 7px  var(--gold),
+      0 0 0 8px  var(--leather-mid),
+      0 0 24px 4px rgba(0,0,0,0.7),
+      0 20px 50px rgba(0,0,0,0.75),
+      inset 0 0 80px rgba(212,168,87,0.08);
+  }
+  .title-page h1 { font-size: 2.6em; }
+  .title-page h2 { font-size: 1.5em; }
+  .title-page .signature-block .author { font-size: 1.6em; }
+  .recipe-header { font-size: 1.15em; padding: 12px 16px; }
+  .recipe-body { padding: 16px 16px 0; }
+  .preface .quote { padding: 26px 22px; }
+  .part-divider h2 { font-size: 1.7em; }
+  .tractate-nav .nav-links a { font-size: 0.66em; padding: 3px 7px; }
+  .page-nav-bottom { flex-direction: column; align-items: stretch; text-align: center; }
+  .page-nav-bottom a { padding: 8px 12px; }
+  .toc { padding: 30px 24px 26px; margin: 30px auto 40px; }
+  .toc h3 { font-size: 1.55em; }
+  .toc-list .toc-num { width: 42px; font-size: 1.2em; }
+  .toc-list .toc-title { font-size: 1em; }
+  .toc::before, .toc::after { width: 16px; height: 16px; }
+  .toc::before { top: 8px; left: 8px; }
+  .toc::after  { bottom: 8px; right: 8px; }
+  .back-to-library { top: 12px; left: 12px; padding: 8px 14px 8px 11px; font-size: 0.7em; letter-spacing: 0.06em; }
+}
+
+/* ===== ПЕЧАТЬ ===== */
+@media print {
+  @page { size: A4; margin: 18mm 16mm; }
+  .back-to-library { display: none !important; }
+  .tractate-nav, .page-nav-bottom { display: none !important; }
+  body {
+    background: var(--parchment) !important;
+    background-image: none !important;
+    padding: 0;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  body::before, body::after { display: none !important; }
+  .book {
+    max-width: none; padding: 0; border: none; outline: none;
+    box-shadow: none !important;
+    background-image: radial-gradient(ellipse at center, rgba(255,255,255,0.4), transparent 80%) !important;
+  }
+  .book::before, .book::after { display: none; }
+  .title-page { page-break-after: always; padding-top: 35mm; }
+  .preface { page-break-after: always; }
+  .part-divider { page-break-before: avoid; }
+  .recipe { page-break-inside: avoid; box-shadow: none; margin: 20px 0; }
+  .recipe-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .colophon { page-break-before: avoid; }
+  .toc { box-shadow: none !important; border: 1px solid var(--gold); max-width: none; }
+}
