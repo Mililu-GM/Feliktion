@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171526">
+<title>Овриэйна — архив ильвэйрисов</title>
+<style>
+:root{--bg:#11111b;--panel:#1b1a2a;--panel2:#222137;--ink:#f2efff;--muted:#b8b2d0;--lav:#c5a9ff;--pink:#f0b9e8;--cyan:#a8e9ef;--line:#ffffff18}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 20% 0%,#39304f 0,transparent 36%),radial-gradient(ellipse at 90% 30%,#18333b 0,transparent 35%),var(--bg);color:var(--ink);font:16px/1.7 Georgia,"Times New Roman",serif}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline;color:#fff}
+.wrap{width:min(1100px,92vw);margin:auto}.hero{min-height:88vh;display:grid;align-items:end;position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:linear-gradient(0deg,#11111b 0%,#11111bd9 30%,#11111b22 100%),radial-gradient(ellipse at 65% 35%,#b9a1ff55,transparent 28%),radial-gradient(ellipse at 25% 70%,#6bd6d955,transparent 30%)}
+.hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(110deg,transparent 0 32px,#d8e9ff12 33px,#d8e9ff12 34px,transparent 35px 70px);mask-image:linear-gradient(transparent,#000)}
+.hero-inner{position:relative;padding:8rem 0 4.5rem}.eyebrow{letter-spacing:.25em;text-transform:uppercase;color:var(--cyan);font:12px/1.5 Arial,sans-serif}.hero h1{font-size:clamp(3.5rem,10vw,7.5rem);line-height:.95;font-weight:400;margin:.4rem 0;color:#fff;text-shadow:0 0 35px #c8b4ff66}.sub{font-size:1.25rem;color:#e2d9f8;max-width:650px}.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}.chip{border:1px solid #d7caff55;border-radius:99px;padding:.35rem .8rem;color:#e8ddff;font:12px Arial,sans-serif;background:#ffffff0a}
+nav{position:sticky;top:0;z-index:5;background:#11111be8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}nav .wrap{display:flex;gap:1.2rem;overflow:auto;padding:.8rem 0;font:13px Arial,sans-serif;white-space:nowrap}
+section{padding:4rem 0;border-bottom:1px solid var(--line)}h2{font-weight:400;font-size:clamp(2rem,5vw,3rem);margin:0 0 1.5rem;color:#eadfff}h3{font-size:1.2rem;color:var(--pink);font-weight:400;margin:.2rem 0 .5rem}.lead{font-size:1.18rem;color:#e4def4;max-width:800px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}.card{background:linear-gradient(145deg,#242239dd,#171725ee);border:1px solid var(--line);border-radius:18px;padding:1.25rem;box-shadow:0 12px 35px #0002}.span4{grid-column:span 4}.span6{grid-column:span 6}.span8{grid-column:span 8}.span12{grid-column:span 12}.muted{color:var(--muted)}.fact{font:13px Arial,sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}.value{font-size:1.2rem;color:#fff}.timeline{border-left:1px solid #c5a9ff66;margin-left:.5rem;padding-left:1.4rem}.event{position:relative;margin:0 0 1.4rem}.event:before{content:"";position:absolute;left:-1.77rem;top:.55rem;width:9px;height:9px;border-radius:50%;background:var(--lav);box-shadow:0 0 15px var(--lav)}
+.art{display:flex;flex-direction:column;min-height:230px;justify-content:end;background:linear-gradient(0deg,#10101beF,#10101b20),radial-gradient(ellipse at 70% 25%,#bda5ff66,transparent 30%),radial-gradient(ellipse at 20% 80%,#7bd5d566,transparent 35%),#29263d;border-radius:16px;padding:1.2rem;border:1px solid var(--line)}
+.art:nth-child(2){background:linear-gradient(0deg,#10101bef,#10101b22),radial-gradient(ellipse at 50% 25%,#e3b7ed77,transparent 30%),#23303a}
+.art:nth-child(3){background:linear-gradient(0deg,#10101bef,#10101b22),radial-gradient(ellipse at 60% 30%,#8fe8df77,transparent 30%),#22283a}
+.art p{margin:.2rem 0;color:#d4cde6;font-size:.95rem}.art a{font:13px Arial,sans-serif}
+.note{border-left:3px solid var(--pink);padding:.6rem 1rem;background:#ffffff08;color:#dcd5ed}
+footer{padding:2rem 0 4rem;color:var(--muted);font-size:.9rem}
+@media(max-width:700px){.span4,.span6,.span8{grid-column:span 12}.hero{min-height:75vh}.hero-inner{padding:6rem 0 3rem}}
+
+.gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+.gallery-card{margin:0;overflow:hidden;border-radius:18px;border:1px solid var(--line);background:#1b1a2a;box-shadow:0 12px 35px #0003}
+.gallery-card a{display:block;line-height:0;overflow:hidden;background:#171725}
+.gallery-card img{width:100%;height:clamp(300px,58vw,680px);object-fit:contain;object-position:center center;display:block;background:#11111b;transition:transform .5s ease}
+.gallery-card a:hover img{transform:scale(1.01)}
+.gallery-card figcaption{display:flex;flex-direction:column;gap:.15rem;padding:1rem 1.1rem}
+.gallery-card figcaption strong{font-weight:400;color:#f2eaff}
+.gallery-card figcaption span{font:12px Arial,sans-serif;color:var(--muted)}
+.gallery-tip{font-size:.85rem;margin-top:1rem}
+@media(max-width:700px){.gallery-grid{grid-template-columns:1fr}.gallery-card img{height:clamp(280px,112vw,680px);max-height:680px;object-fit:contain}}
+
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap hero-inner">
+<div class="eyebrow">Архив скрытого народа · Ильвэйрисы</div>
+<h1>Овриэйна</h1>
+<p class="sub">Та, что слышит дождь. Последняя известная жительница своей долины — тихая странница с сиреневым светом под кожей и памятью, рассыпанной на обрывки.</p>
+<div class="chips"><span class="chip">Ильвэйриса</span><span class="chip">179 см</span><span class="chip">Внешне 21–24 года</span><span class="chip">Сиреневые узоры</span><span class="chip">Редкая способность: дождь</span></div>
+</div></header>
+<nav><div class="wrap"><a href="#profile">Анкета</a><a href="#appearance">Внешность</a><a href="#story">История</a><a href="#abilities">Способности</a><a href="#personality">Характер</a><a href="#home">Убежище</a><a href="#generated-gallery">Галерея артов</a><a href="#gallery">Арт-референсы</a></div></nav>
+<main class="wrap">
+<section id="profile"><div class="eyebrow">01 / Досье</div><h2>Анкета персонажа</h2><div class="grid">
+<div class="card span4"><div class="fact">Имя</div><div class="value">Овриэйна</div></div>
+<div class="card span4"><div class="fact">Раса</div><div class="value">Ильвэйрис</div></div>
+<div class="card span4"><div class="fact">Пол</div><div class="value">Женский</div></div>
+<div class="card span4"><div class="fact">Возраст внешне</div><div class="value">21–24 года</div></div>
+<div class="card span4"><div class="fact">Рост</div><div class="value">179 см</div></div>
+<div class="card span4"><div class="fact">Телосложение</div><div class="value">Хрупкое, стройное, изящное</div></div>
+<div class="card span12"><div class="fact">Ключевые черты</div><p class="lead">Нежность · хрупкость · загадочность · осторожное любопытство · глубокая привязанность, которой она сама немного боится.</p></div>
+</div></section>
+<section id="appearance"><div class="eyebrow">02 / Облик</div><h2>Внешность</h2><p class="lead">Овриэйна почти человек по анатомии, но её присутствие выдаёт тихое эфирное свечение — будто свет луны задержался под кожей.</p><div class="grid">
+<div class="card span6"><h3>Лицо и взгляд</h3><p>Изящное овальное лицо с мягкими чертами; очень светлая фарфоровая кожа с жемчужным отливом. Маленький аккуратный, слегка вздёрнутый нос и перламутровые губы с едва заметным сиянием. Глаза опаловые, бирюзово-голубые, со зрачками в форме маленькой звезды. Брови и ресницы нежно-розовые.</p></div>
+<div class="card span6"><h3>Волосы и уши</h3><p>Серебристо-перламутровые волосы с нежно-голубыми и розовыми переливами, мягкими волнами до лопаток. Часть собрана сзади, остальное свободно ниспадает. Полупрозрачные уши напоминают лепестки, не имеют стандартной эльфийской остроты.</p></div>
+<div class="card span6"><h3>Эфирные узоры</h3><p>Сиреневые прожилки под кожей напоминают тонкие ветви и рисунок минерала. На лице и шее они изящные, на теле — более сложные и разветвлённые. Узоры светятся постоянно и становятся ярче при сильных эмоциях.</p></div>
+<div class="card span6"><h3>Эфирное ядро</h3><p>В верхней части груди сквозь кожу заметен светящийся орган розового, голубого и перламутрового оттенков. При использовании способностей его сияние усиливается. Это часть её организма, не украшение.</p></div>
+<div class="card span12"><h3>Одежда и детали</h3><p>Лёгкий наряд словно соткан из тумана и света: воздушные полупрозрачные слои, мягкие складки и нежно-серебристые оттенки. Узоры остаются видимыми. На ногах — лёгкие полупрозрачные туфельки; украшения небольшие, с камнями. Пальцы тонкие, под полупрозрачными ногтями просвечивает сиреневое сияние.</p></div>
+</div></section>
+<section id="story"><div class="eyebrow">03 / Память</div><h2>История</h2><p class="lead">Её прошлое не сложилось в цельное воспоминание. Оно приходит отдельными звуками, прикосновениями и силуэтами.</p>
+<div class="timeline">
+<div class="event"><h3>Детство среди ильвэйрисов</h3><p>Овриэйна росла в большой семье. У неё были мать, отец и старший брат, а возможно, и другие родственники. Уже тогда она была тихой, застенчивой, мечтательной и любознательной. Брат был смелым, решительным и заботливым, иногда немного строгим.</p></div>
+<div class="event"><h3>Нападение людей</h3><p>Когда Овриэйна была ребёнком и выглядела примерно на 12–15 лет, её поселение подверглось нападению людей. Это связано с давней охотой на ильвэйрисов и попытками похищать их эфирные ядра ради экспериментов и извлечения энергии.</p></div>
+<div class="event"><h3>Дождь и исчезновение</h3><p>В тот день шёл сильный дождь. В памяти остались лишь обрывки: капли замедлились или словно зависли, появились светящиеся образы, узоры вспыхнули, а эфирное ядро засияло необычайно ярко. Затем произошло необъяснимое искажение — Овриэйна оказалась далеко от поселения и не помнит, как именно спаслась.</p></div>
+<div class="event"><h3>Долгие годы одиночества</h3><p>Она живёт одна уже несколько столетий в скрытой долине. Овриэйна считает, что потеряла близких, и почти не помнит лица родителей и брата. На самом деле старший брат тоже выжил, но ни один из них пока не знает, что другой жив.</p></div>
+</div>
+<div class="note">Важно: нынешнее местонахождение брата неизвестно. Возможная встреча остаётся открытой частью истории.</div>
+</section>
+<section id="abilities"><div class="eyebrow">04 / Эфир</div><h2>Способности</h2><div class="grid">
+<div class="card span4"><h3>Эмпатическое восприятие</h3><p>Поблизости ощущает присутствие живых существ и их эмоциональное состояние. Не читает мысли и не знает точную причину чужих чувств.</p></div>
+<div class="card span4"><h3>Эфирное управление</h3><p>Может манипулировать эфирной энергией, создавать небольшие конструкции, перемещать предметы и ограниченно воздействовать на материю. Всё зависит от запаса энергии.</p></div>
+<div class="card span4"><h3>Эфирная память</h3><p>Воспринимает эмоциональные отпечатки, оставленные в местах и предметах. Это не просмотр прошлого как фильма.</p></div>
+<div class="card span12"><h3>Редкий дар — связь с дождём</h3><p>Овриэйна способна немного управлять отдельными дождевыми каплями: замедлять их падение, менять направление, собирать в небольшие парящие сферы и создавать водные узоры. Её дар работает и с влажным туманом. Внутри капель могут проступать крошечные светящиеся образы и силуэты, а вокруг неё возникает едва заметное мерцание.</p><p>Дар пока неизвестен самой Овриэйне. Чем больше влаги она пытается контролировать, тем быстрее истощается эфирное ядро. Сильный ветер и интенсивный ливень затрудняют управление; в сухой местности способность почти бесполезна. Пение не активирует и не усиливает её дар — это просто личная привычка.</p></div>
+</div></section>
+<section id="personality"><div class="eyebrow">05 / Внутренний мир</div><h2>Характер и привычки</h2><div class="grid">
+<div class="card span6"><h3>Характер</h3><p>Нежная, пугливая, застенчивая, недоверчивая, мечтательная и упрямая. Очень любознательна, но страх часто заставляет её сначала наблюдать из укрытия. Привязывается медленно и, полюбив кого-то, сильно боится новой потери.</p></div>
+<div class="card span6"><h3>Отношение к людям</h3><p>Боится людей из-за пережитого нападения, но не считает каждого человека злым. В глубине души мечтает встретить того, кому сможет доверять. На доброту сначала реагирует смущением и осторожностью, постепенно оттаивая.</p></div>
+<div class="card span6"><h3>Маленькие привычки</h3><p>Тихо напевает, когда думает, что её никто не слышит. Говорит почти шёпотом, при волнении запинается и делает паузы. Любит наблюдать за дождём, рисовать, читать и вести записи.</p></div>
+<div class="card span6"><h3>Что ей дорого</h3><p>Любит ночь, рассвет, весну, дождь, запах мокрой земли, цветов и свежей зелени. Засыпает под шум дождя. Любит купаться в природных водоёмах, изучать растения и наблюдать за животными.</p></div>
+</div></section>
+<section id="home"><div class="eyebrow">06 / Убежище</div><h2>Скрытая долина</h2><p class="lead">Её дом стоит в небольшой долине, окружённой высокими скалами и древними деревьями. Лёгкий туман задерживается между стволами, светящиеся растения подсвечивают тропинки, а рядом течёт прозрачный ручей.</p><div class="grid">
+<div class="card span6"><h3>Дом</h3><p>Небольшое уютное жилище, украшенное цветами и природными находками. Внутри аккуратно разложены книги, записи и засушенные растения. У каждой вещи есть своё место.</p></div>
+<div class="card span6"><h3>Окружающий мир</h3><p>Редкие цветы раскрываются ночью. Животные иногда приходят к дому, хотя собственного питомца у Овриэйны нет. Особенно ей нравится наблюдать, как дождь стекает по листьям и собирается в прозрачные капли.</p></div>
+</div></section>
+
+<section id="generated-gallery"><div class="eyebrow">08 / Галерея персонажа</div><h2>Арты Овриэйны</h2>
+<p class="lead">Четыре авторские визуализации, созданные по её анкете: дождь, эфирные узоры, перламутровые волосы и тихая магия скрытой долины.</p>
+<div class="gallery-grid">
+<figure class="gallery-card"><a href="ovreyna_gallery/art-01.png" target="_blank"><img src="ovreyna_gallery/art-01.png" alt="Овриэйна в полный рост среди светящихся растений под дождём"></a><figcaption><strong>01 · Долина под дождём</strong><span>Полный образ и окружение</span></figcaption></figure>
+<figure class="gallery-card"><a href="ovreyna_gallery/art-02.png" target="_blank"><img src="ovreyna_gallery/art-02.png" alt="Портрет Овриэйны с сияющей каплей в ладонях"></a><figcaption><strong>02 · Эфирная капля</strong><span>Крупный портрет и свечение ядра</span></figcaption></figure>
+<figure class="gallery-card"><a href="ovreyna_gallery/art-03.png" target="_blank"><img src="ovreyna_gallery/art-03.png" alt="Овриэйна касается парящей дождевой капли"></a><figcaption><strong>03 · Прикосновение к дождю</strong><span>Фигура в полуповороте</span></figcaption></figure>
+<figure class="gallery-card"><a href="ovreyna_gallery/art-04.png" target="_blank"><img src="ovreyna_gallery/art-04.png" alt="Овриэйна возле светящегося цветка в ночном лесу"></a><figcaption><strong>04 · Ночной цветок</strong><span>Тихая сцена в её долине</span></figcaption></figure>
+</div>
+<p class="muted gallery-tip">Нажми на любое изображение, чтобы открыть его в полном размере.</p>
+</section>
+
+<section id="gallery"><div class="eyebrow">07 / Визуальные ориентиры</div><h2>Арт-референсы</h2><p class="muted">Это не изображения самой Овриэйны, а внешние работы для настроения, света, окружения и материалов. Они принадлежат своим авторам и площадкам.</p>
+<div class="grid">
+<div class="span4 art"><h3>Светящийся инопланетный лес</h3><p>Ориентир для биолюминесцентной флоры, тумана и необычной природы.</p><a href="https://budgetpixel.com/p/53097" target="_blank" rel="noopener">Открыть референс ↗</a></div>
+<div class="span4 art"><h3>Эфирная волшебница</h3><p>Ориентир для перламутрового свечения, серебряной палитры и мистической фигуры.</p><a href="https://stockcake.com/i/ethereal-fantasy-enchantress_3262533_1507284/" target="_blank" rel="noopener">Открыть референс ↗</a></div>
+<div class="span4 art"><h3>Сияющий зачарованный сад</h3><p>Ориентир для светящихся цветов, тёмной воды и мягкого цветного света.</p><a href="https://www.proxima.art/prompt/ethereal-woman-in-bioluminescent-enchanted-garden" target="_blank" rel="noopener">Открыть референс ↗</a></div>
+<div class="span4 art"><h3>Женщина в волшебном лесу</h3><p>Ориентир для спокойной позы, мягкой атмосферы и лесной глубины.</p><a href="https://stockcake.com/i/enchanted-woodland-artist_4644336_1994132" target="_blank" rel="noopener">Открыть референс ↗</a></div>
+<div class="span4 art"><h3>Лесная сказка</h3><p>Ориентир для воздушной одежды, сияющих растений и сказочного реализма.</p><a href="https://stockcake.com/i/%E6%A3%AE%E3%81%AE%E3%81%8A%E3%81%A8%E3%81%8E%E8%A9%B1_4358131_1927174/" target="_blank" rel="noopener">Открыть референс ↗</a></div>
+<div class="span4 art"><h3>Дождевой биолюминесцентный мир</h3><p>Ориентир для парящих капель, светящейся растительности и необычной физики воды.</p><a href="https://stockcake.com/i/enchanted-jungle-dreamscape_3595235_1711295/" target="_blank" rel="noopener">Открыть референс ↗</a></div>
+</div>
+</section>
+</main>
+<footer><div class="wrap"><p>Архив персонажа Овриэйны · Рабочая энциклопедическая анкета</p><p>Некоторые элементы мифологии и прошлого намеренно оставлены открытыми, чтобы их можно было развивать дальше без противоречий.</p></div></footer>
+</body></html>
